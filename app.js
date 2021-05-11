@@ -65,6 +65,7 @@ search.addEventListener("input", function () {
 
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
+    cardTxt= cardTxt.toLowerCase();
     if (cardTxt.includes(inputVal)) {
       element.style.display = "block";
     } else {
