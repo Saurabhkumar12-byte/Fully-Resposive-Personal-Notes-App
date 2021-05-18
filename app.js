@@ -9,8 +9,7 @@ addBtn.addEventListener("click", function (e) {
   } else {
     notesObj = JSON.parse(notes);
   }
-  let myobj={text:addTxt.value,
-             title:addTitle.value }
+  let myobj = { text: addTxt.value, title: addTitle.value };
   if (addTxt.value != "") {
     notesObj.push(myobj);
   }
@@ -69,8 +68,10 @@ search.addEventListener("input", function () {
 
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
-    cardTxt= cardTxt.toLowerCase();
-    if (cardTxt.includes(inputVal)) {
+    let cardTitle = element.getElementsByTagName("h5")[0].innerText;
+    cardTxt = cardTxt.toLowerCase();
+    cardTitle = cardTitle.toLowerCase();
+    if (cardTxt.includes(inputVal) || cardTitle.includes(inputVal)) {
       element.style.display = "block";
     } else {
       element.style.display = "none";
